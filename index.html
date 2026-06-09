@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acesso Privado</title>
+<title>Presente Exclusivo</title>
 
 <style>
 * {
@@ -15,317 +15,246 @@
 
 body {
   min-height: 100vh;
-  background: radial-gradient(circle at top, #061a3a, #020817 75%);
+  background: #14002f;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
-  position: relative;
-}
-
-.heart {
-  position: absolute;
-  font-size: 14px;
-  color: #ff1f3d;
-  opacity: .55;
-  animation: heartFloat linear infinite;
-  text-shadow:
-    0 0 8px rgba(255,0,60,.8),
-    2px 2px 0 #8b0016,
-    4px 4px 10px rgba(0,0,0,.6);
-  transform-style: preserve-3d;
-  z-index: 1;
-}
-
-@keyframes heartFloat {
-  0% {
-    transform: translateY(110vh) rotateX(20deg) rotateY(0deg) scale(.7);
-    opacity: 0;
-  }
-  15% {
-    opacity: .65;
-  }
-  100% {
-    transform: translateY(-15vh) rotateX(40deg) rotateY(360deg) scale(1.1);
-    opacity: 0;
-  }
+  overflow: hidden;
 }
 
 .container {
   width: 100%;
-  max-width: 420px;
+  max-width: 390px;
+  height: 100vh;
   padding: 20px;
-  position: relative;
-  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.card {
-  background: linear-gradient(180deg, rgba(3,18,45,.88), rgba(1,8,24,.95));
-  backdrop-filter: blur(12px);
-  border-radius: 18px;
-  padding: 26px 22px;
-  box-shadow:
-    0 0 0 1px rgba(255,0,60,.18),
-    0 25px 60px rgba(0,0,0,.75);
+.screen {
+  width: 100%;
   text-align: center;
   animation: fadeIn .5s ease;
 }
 
 @keyframes fadeIn {
-  from { opacity:0; transform:translateY(10px); }
-  to { opacity:1; transform:translateY(0); }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.gift-wrap {
+  cursor: pointer;
+  display: inline-block;
+  transition: .25s ease;
+}
+
+.gift-wrap:active {
+  transform: scale(.94);
+}
+
+.gift {
+  width: 145px;
+  height: 120px;
+  margin: 0 auto 22px;
+  position: relative;
+}
+
+.gift-box {
+  position: absolute;
+  bottom: 0;
+  width: 140px;
+  height: 88px;
+  background: #ff2b7a;
+  border-radius: 0 0 18px 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 35px rgba(255, 43, 122, .22);
+}
+
+.gift-box::before {
+  content: "";
+  position: absolute;
+  left: 60px;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  background: #ffb000;
+}
+
+.gift-box::after {
+  content: "";
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: #ffb000;
+}
+
+.gift-lid {
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 150px;
+  height: 50px;
+  background: #ff2b7a;
+  border-radius: 14px;
+  z-index: 3;
+}
+
+.ribbon {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  z-index: 5;
 }
 
 h1 {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 800;
-  color: #ff304f;
-  margin-bottom: 12px;
+  color: #f0d7ff;
+  margin-bottom: 8px;
 }
 
 p {
-  font-size: 14.5px;
-  line-height: 1.45;
-  opacity: .92;
+  font-size: 13px;
+  color: rgba(255,255,255,.34);
+}
+
+#etapa2 {
+  display: none;
+}
+
+.opened {
+  animation: pop .45s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 22px;
+  padding: 28px 22px;
+  box-shadow: 0 25px 70px rgba(0,0,0,.35);
 }
 
 .btn {
   width: 100%;
+  margin-top: 22px;
   padding: 16px;
-  margin-top: 18px;
   border: none;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #ff1f3d, #9c0018);
-  color: #fff;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff2b7a, #ff8a00);
+  color: white;
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 900;
   cursor: pointer;
-  box-shadow:
-    0 10px 30px rgba(255,0,60,.35),
-    inset 0 0 0 1px rgba(255,255,255,.15);
-  transition: .25s;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 40px rgba(255,0,60,.45);
-}
-
-.btn.secondary {
-  background: linear-gradient(135deg, #071f4d, #020817);
+  box-shadow: 0 12px 35px rgba(255,43,122,.35);
 }
 
 .timer {
-  margin-top: 10px;
+  margin-top: 13px;
   font-size: 13px;
+  color: #ffd3ec;
   font-weight: 700;
-  color: #ff6b7d;
-}
-
-.micro {
-  font-size: 12px;
-  opacity: .6;
-  margin-top: 10px;
-}
-
-.list {
-  text-align: left;
-  margin-top: 14px;
-  font-size: 14px;
-}
-
-.list span {
-  display: block;
-  margin-bottom: 6px;
 }
 
 .loading {
   margin-top: 18px;
   width: 100%;
   height: 8px;
-  background: rgba(255,255,255,.08);
-  border-radius: 8px;
+  background: rgba(255,255,255,.1);
+  border-radius: 10px;
   overflow: hidden;
   display: none;
 }
 
 .loading-bar {
-  height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #ff1f3d, #ff6b7d);
-  transition: width 1.8s ease;
+  height: 100%;
+  background: linear-gradient(90deg, #ff2b7a, #ffb000);
+  transition: width 1.6s ease;
 }
 
 .status {
   margin-top: 10px;
   font-size: 13px;
-  color: #ff8a9a;
+  color: #ffd3ec;
 }
-
-.footer-legal {
-  margin-top: 20px;
-  padding: 14px 10px 0;
-  text-align: center;
-  font-size: 10.5px;
-  line-height: 1.6;
-  color: rgba(255,255,255,.48);
-}
-
-.footer-legal a {
-  color: #7ea6ff;
-  text-decoration: none;
-}
-
-.footer-legal a:hover {
-  text-decoration: underline;
-}
-
-#etapa2 { display:none; }
 </style>
 </head>
 
 <body>
 
-<script>
-for (let i = 0; i < 28; i++) {
-  const heart = document.createElement('div');
-  heart.className = 'heart';
-  heart.innerHTML = '❤';
-  heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.fontSize = 9 + Math.random() * 10 + 'px';
-  heart.style.animationDuration = 9 + Math.random() * 13 + 's';
-  heart.style.animationDelay = Math.random() * 8 + 's';
-  document.body.appendChild(heart);
-}
-</script>
-
 <div class="container">
 
-  <!-- ETAPA 1 -->
-  <div class="card" id="etapa1">
-    <h1>Esse acesso não aparece duas vezes</h1>
+  <div class="screen" id="etapa1">
+    <div class="gift-wrap" onclick="abrirPresente()">
+      <div class="gift">
+        <div class="ribbon">🎀</div>
+        <div class="gift-lid"></div>
+        <div class="gift-box"></div>
+      </div>
 
-    <p>
-      Você chegou até aqui por um motivo.<br>
-      O próximo passo revela o que está disponível neste momento.
-    </p>
-
-    <button class="btn" onclick="avancar()">
-      CLIQUE AQUI →
-    </button>
-
-    <div class="timer">
-      Sessão disponível por: <span id="timer1">50</span>s
-    </div>
-
-    <div class="micro">
-      Ambiente exclusivo • Acesso limitado
+      <h1>Toque para abrir</h1>
+      <p>Presente exclusivo</p>
     </div>
   </div>
 
-  <!-- ETAPA 2 -->
-  <div class="card" id="etapa2">
-    <h1>Acesso em andamento</h1>
+  <div class="screen opened" id="etapa2">
+    <div class="card">
+      <h1>Seu presente foi liberado 🎁</h1>
 
-    <p>
-      Daqui pra frente é direto.<br>
-      Sem enrolação. É onde tudo realmente acontece.
-    </p>
+      <p>
+        Uma oferta especial acabou de ficar disponível para você.
+        Toque abaixo para acessar antes que expire.
+      </p>
 
-    <div class="list">
-      <span>✔ Tudo reunido em um único ambiente</span>
-      <span>✔ Acesso direto</span>
-      <span>✔ Tudo em um só lugar</span>
+      <button class="btn" onclick="redirectFinal()">
+        RESGATAR AGORA →
+      </button>
+
+      <div class="timer">
+        Oferta disponível por: <span id="timer">50</span>s
+      </div>
+
+      <div class="loading" id="loading">
+        <div class="loading-bar" id="loadingBar"></div>
+      </div>
+
+      <div class="status" id="status"></div>
     </div>
-
-    <button class="btn secondary" onclick="redirectTelegram()">
-      🔥 Entrar no TELEGRAM VIP agora
-    </button>
-
-    <div class="timer">
-      Acesso liberado por <span id="timer2">50</span>s
-    </div>
-
-    <div class="micro">
-      Apenas para quem realmente quer continuar
-    </div>
-
-    <div class="loading" id="loading">
-      <div class="loading-bar" id="loadingBar"></div>
-    </div>
-
-    <div class="status" id="status"></div>
-  </div>
-
-  <!-- TERMOS E LICENÇAS -->
-  <div class="footer-legal">
-    © 2026 Todos os direitos reservados.<br>
-
-    Esta página possui caráter informativo e promocional. Ao continuar navegando,
-    você declara ter lido e concordado com nossos termos de utilização.
-
-    <br><br>
-
-    O acesso a determinados conteúdos pode estar sujeito a requisitos específicos,
-    incluindo idade mínima quando aplicável. O compartilhamento, reprodução ou
-    distribuição não autorizada de qualquer material disponibilizado nesta plataforma
-    é proibido.
-
-    <br><br>
-
-    Esta página utiliza tecnologias de análise, segurança e desempenho para melhorar
-    a experiência do usuário.
-
-    <br><br>
-
-    <a href="#">Termos de Uso</a>
-    &nbsp;•&nbsp;
-    <a href="#">Política de Privacidade</a>
-    &nbsp;•&nbsp;
-    <a href="#">Licenças</a>
   </div>
 
 </div>
 
 <script>
-let time1 = 50;
-let time2 = 50;
-let interval1;
-let interval2;
+let time = 50;
+let interval;
 
-function startTimer1() {
-  interval1 = setInterval(() => {
-    time1--;
-    document.getElementById('timer1').innerText = time1;
-
-    if (time1 <= 0) {
-      clearInterval(interval1);
-      document.getElementById('timer1').innerText = '0';
-    }
-  }, 1000);
-}
-
-function startTimer2() {
-  interval2 = setInterval(() => {
-    time2--;
-    document.getElementById('timer2').innerText = time2;
-
-    if (time2 <= 0) {
-      clearInterval(interval2);
-      document.getElementById('timer2').innerText = '0';
-    }
-  }, 1000);
-}
-
-function avancar() {
-  clearInterval(interval1);
+function abrirPresente() {
   document.getElementById('etapa1').style.display = 'none';
   document.getElementById('etapa2').style.display = 'block';
-  startTimer2();
+
+  interval = setInterval(() => {
+    time--;
+    document.getElementById('timer').innerText = time;
+
+    if (time <= 0) {
+      clearInterval(interval);
+      document.getElementById('timer').innerText = '0';
+    }
+  }, 1000);
 }
 
-function redirectTelegram() {
+function redirectFinal() {
   const loading = document.getElementById('loading');
   const bar = document.getElementById('loadingBar');
   const status = document.getElementById('status');
@@ -333,16 +262,16 @@ function redirectTelegram() {
   loading.style.display = 'block';
   bar.style.width = '100%';
 
-  status.innerText = 'Validando acesso...';
-  setTimeout(() => status.innerText = 'Conectando ambiente privado...', 600);
-  setTimeout(() => status.innerText = 'Acesso autorizado', 1200);
+  status.innerText = 'Validando presente...';
 
   setTimeout(() => {
-    window.location.href = 'https://paylume.fans/l/72e29bbb?shk=gx9hd4rv';
-  }, 1800);
-}
+    status.innerText = 'Redirecionando...';
+  }, 800);
 
-startTimer1();
+  setTimeout(() => {
+    window.location.href = 'https://shop-tiktok-brpd-p173478979123917-source-commerce.vercel.app/';
+  }, 1600);
+}
 </script>
 
 </body>
