@@ -122,6 +122,7 @@ h1 {
 p {
   font-size: 13px;
   color: rgba(255,255,255,.34);
+  line-height: 1.5;
 }
 
 #etapa2 {
@@ -157,6 +158,10 @@ p {
   font-weight: 900;
   cursor: pointer;
   box-shadow: 0 12px 35px rgba(255,43,122,.35);
+}
+
+.btn:active {
+  transform: scale(.97);
 }
 
 .timer {
@@ -269,7 +274,10 @@ function redirectFinal() {
   }, 800);
 
   setTimeout(() => {
-    window.location.href = 'https://tiktokshop--commerce.vercel.app/';
+    const destino = 'https://tiktokshop--commerce.vercel.app/';
+    const parametros = window.location.search;
+
+    window.location.href = destino + parametros;
   }, 1600);
 }
 </script>
